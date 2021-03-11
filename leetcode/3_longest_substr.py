@@ -1,20 +1,21 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        _max = 0
-        for i in range(len(s)):
-            for j in range(i+1,len(s) + 1):
-                substr = s[i:j]
+        for l in reversed(range(1, len(s) + 1)):
+            for i in range(0, len(s) + 1 - l):
+                substr = s[i:i+l]
                 if isValid(substr):
-                    if _max < len(substr):
-                        _max = len(substr)
-        return _max
-            
+                    print(substr)
+                    return l
             
 def isValid(string: str) -> bool:
-	_list = list(string)
-	return not any([ s in _list[i+1:] for (i, s) in enumerate(_list)])
+    _list = list(string)
+    for (i,s) in enumerate(_list):
+        exist = s in _list[i+1:]
+        if exist:
+            return False
+    return True
 
 if __name__ == "__main__":
-	s = Solution()
-	ans = s.lengthOfLongestSubstring(" ")
-	print(ans)
+    s = Solution()
+    ans = s.lengthOfLongestSubstring("abcabcbb")
+    print(ans)
