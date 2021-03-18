@@ -1,49 +1,36 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        if len(s) == 1:
-          return s[0]
+      dp = [][]
+      # 初期化
+      for i in range(len(s)):
+        dp[i][i] = True
+        if i+1 < len(s) and s[i] == s[i+1]:
+          dp[i][i+1] = True
+        else:
+          dp[i][i+1] = False
+      
+      i = 1
+      j = 1
+      start = 2
+      while True:
+        #更新 dp =
+        i += 1
+        j += 1
+        if j = len(s) - 1:
+          i = 1
+          j = start
+          start += 1
+          if start == 1
+        
 
-        # 2
-        count = 0
-        ans = ""
-        _max = 0
-        for i in range(len(s) - 1):
-            if s[i] == s[i+1]:
-                count = 2
-                l = i-1
-                r = i+2
-                while True:
-                    if l < 0:
-                        break
-                    if r > len(s) - 1:
-                        break
-                    if s[l] != s[r]:
-                        break
-                    count += 2
-                    l -= 1
-                    r += 1
-                if count > _max:
-                    ans = s[l+1: r]
-                    _max = len(ans)
-        for i in range(1, len(s) -1):
-            if s[i-1] == s[i+1]:
-                count = 3
-                l = i-2
-                r = i+2
-                while True:
-                    if l < 0:
-                        break
-                    if r > len(s) - 1:
-                        break
-                    if s[l] != s[r]:
-                        break
-                    count += 2
-                    l -= 1
-                    r += 1
-                if count > _max:
-                    ans = s[l+1: r]
-                    _max = len(ans)
-        return ans
+      for j in range(0,len(s)-2):
+        for i in range(1,)
+
+      for i in range(1,len(s)-1):
+        dp[i-1][i+1] = dp[i][i] and s[i-1] == s[i+1]
+        
+
+      
 
 if __name__ == "__main__":
   s = Solution()
