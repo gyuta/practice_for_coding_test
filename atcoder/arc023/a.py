@@ -1,5 +1,14 @@
 def main():
-  pass
+  N = int(getStrInput())
+  t = [int(getStrInput()) for i in range(N)]
+
+  bfs = bitFullSearch(t)
+  _min = sum(t)
+  for container, out in bfs.search_with_out(distinguish=False):
+    _max = max(sum(container), sum(out))
+    _min = min(_min,_max)
+  
+  print(_min)
 
 from sys import stdin
 
