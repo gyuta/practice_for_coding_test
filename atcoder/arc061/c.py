@@ -1,7 +1,16 @@
 def main():
-  pass
+  S = getStrInput()
+  bfs = bitFullSearch(list(S))
+  _sum = 0
+  for container in bfs.search_with_partition():
+    nums = [int(reduce(lambda acc, cur: acc + str(cur), item, '')) for item in container]
+
+    # print(container, nums)
+    _sum += sum(nums)
+  print(_sum)
 
 from sys import stdin
+from functools import reduce
 
 def getStrInput():
   return stdin.readline().rstrip()
