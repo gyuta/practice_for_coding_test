@@ -1,6 +1,7 @@
 # コンテスト用にフォルダを生成するスクリプト
 from os import mkdir
 from sys import exit
+from shutil import copy
 
 def main():
   contest_name = getStrInput()
@@ -20,8 +21,7 @@ def makeDir(name: str) -> None:
 
 def makeFiles(dir: str ,names: list[str]) -> None:
   for name in names:
-    with open(dir + '/' + name + '.py', 'w') as f:
-      pass
+    copy('./template.py', dir + '/' + name + '.py')
   return None
 
 def formatInput(expr):
